@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KendoHamster">
         <activity
+            android:name=".Settings"
+            android:exported="false" />
+        <activity
+            android:name=".History"
+            android:exported="false" />
+        <activity
+            android:name=".TrainingMenu"
+            android:exported="false" />
+        <activity
+            android:name=".MotionList"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
