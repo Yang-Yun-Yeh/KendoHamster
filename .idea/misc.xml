@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/GitHub/KendoHamster/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/GitHub/KendoHamster/app/src/main/res/layout/activity_training_menu.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/User/git/KendoHamster/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/judy9/Desktop/MISproject/KendoHamster/app/src/main/res/layout/activity_main.xml" value="0.18795289855072464" />
+        <entry key="..\:/Users/judy9/Desktop/MISproject/KendoHamster/app/src/main/res/layout/activity_motion_list.xml" value="0.2596491228070175" />
+        <entry key="..\:/Users/judy9/Desktop/MISproject/KendoHamster/app/src/main/res/layout/motion_list_card_design.xml" value="0.264" />
+        <entry key="..\:/Users/judy9/Desktop/MISproject/KendoHamster/app/src/main/res/layout/motionlist_layout.xml" value="0.264" />
+        <entry key="..\:/Users/judy9/Desktop/MISproject/KendoHamster/app/src/main/res/layout/motionlistgridview_layout.xml" value="0.25" />
       </map>
     </option>
   </component>
