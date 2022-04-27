@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KendoHamster">
         <activity
+            android:name=".HistoryDailyRecord"
+            android:exported="false" />
+        <activity
             android:name=".Settings"
             android:exported="false" />
         <activity
