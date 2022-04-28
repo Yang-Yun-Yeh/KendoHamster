@@ -9,6 +9,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     Button btnMotionList,btnHistory,btnTrainingMenu,btnSettings;
+    Button btnTestPractice;
 
 
     @Override
@@ -48,5 +49,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+        btnTestPractice = findViewById(R.id.btnTestPractice);
+        btnTestPractice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this,TrainingView.class);
+                startActivity(i);
+            }
+        });
+
     }
 }
