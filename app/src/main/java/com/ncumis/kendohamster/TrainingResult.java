@@ -22,8 +22,9 @@ public class TrainingResult extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_training_result);
 
-        motionName = "正面劈刀";
-        practiceTime = 10;
+        Intent i = getIntent();
+        motionName = i.getStringExtra("motionName");
+        practiceTime = i.getIntExtra("practiceTime", 0);
         accuracy = 0.8;
 
         textResultMotionName = findViewById(R.id.textResultMotionName);
@@ -41,6 +42,8 @@ public class TrainingResult extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(TrainingResult.this, TrainingView.class);
+                i.putExtra("motionName", motionName);
+                i.putExtra("practiceTime", practiceTime);
                 startActivity(i);
             }
         });

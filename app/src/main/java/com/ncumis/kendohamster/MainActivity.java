@@ -1,6 +1,7 @@
 package com.ncumis.kendohamster;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +10,6 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     Button btnMotionList,btnHistory,btnTrainingMenu,btnSettings;
-    Button btnTestPractice;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,15 +49,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        btnTestPractice = findViewById(R.id.btnTestPractice);
-        btnTestPractice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this,TrainingView.class);
-                startActivity(i);
-            }
-        });
-
     }
+
+
 }
