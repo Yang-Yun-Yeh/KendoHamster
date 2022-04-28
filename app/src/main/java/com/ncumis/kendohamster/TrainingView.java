@@ -34,10 +34,10 @@ public class TrainingView extends AppCompatActivity {
 
                 if(practiceCount>1) { practiceCount -= 1; }
                 else{
-                    Intent i = new Intent(TrainingView.this, MotionList.class);
+                    Intent i = new Intent(TrainingView.this, TrainingResult.class);
                     startActivity(i);
                     TrainingView.this.finish();
-                    Toast.makeText(getApplicationContext(),"Practice Complete",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Practice Complete",Toast.LENGTH_SHORT).show();
                 }
                 textCounter.setText(String.valueOf(practiceCount));
 
@@ -48,7 +48,7 @@ public class TrainingView extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(TrainingView.this, MotionList.class);
+                Intent i = new Intent(TrainingView.this, MotionVideo.class);
                 startActivity(i);
                 TrainingView.this.finish();
 
@@ -59,7 +59,7 @@ public class TrainingView extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplicationContext(),"Start Recording",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Start Recording",Toast.LENGTH_SHORT).show();
 
             }
         });
