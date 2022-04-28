@@ -40,9 +40,9 @@ public class GridAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
 
         @SuppressLint("ViewHolder") View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.motionlistgridview_layout, viewGroup, false);
+                .inflate(R.layout.gridview_motionlist_layout, viewGroup, false);
 
-        TextView textView = v.findViewById(R.id.textView);
+        TextView textView = v.findViewById(R.id.textViewMotionName);
         //assign data to the component
         textView.setText(text.get(i));
 
