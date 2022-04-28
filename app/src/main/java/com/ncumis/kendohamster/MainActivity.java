@@ -1,6 +1,7 @@
 package com.ncumis.kendohamster;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +10,6 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     Button btnMotionList,btnHistory,btnTrainingMenu,btnSettings;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,5 +48,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
     }
+
+
 }
