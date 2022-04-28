@@ -16,4 +16,13 @@
         <item>校準</item>
         <item>語言</item>
     </string-array>
+
+    <string-array name="video">
+        <item>一、分解動作一</item>
+        <item>二、分解動作二</item>
+        <item>三、分解動作三</item>
+        <item>四、分解動作四</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
