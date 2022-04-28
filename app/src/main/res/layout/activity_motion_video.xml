@@ -10,7 +10,17 @@
     <FrameLayout
         android:id="@+id/frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content" />
 
-    </FrameLayout>
+    <Button
+        android:id="@+id/btnPractice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我要練習" />
+
+    <Button
+        android:id="@+id/btnAddToMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="加入菜單" />
 </LinearLayout>

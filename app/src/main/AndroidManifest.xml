@@ -13,10 +13,9 @@
         <activity
             android:name=".MotionVideo2"
             android:exported="false" />
-      <activity
+        <activity
             android:name=".MotionVideo"
             android:exported="false" />
-      
         <activity
             android:name=".HistoryDailyRecord"
             android:exported="false" />
