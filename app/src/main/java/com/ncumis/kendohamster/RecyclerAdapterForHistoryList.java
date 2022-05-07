@@ -1,17 +1,20 @@
 package com.ncumis.kendohamster;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class RecyclerAdapterForHistoryList extends RecyclerView.Adapter<RecyclerAdapterForHistoryList.HistoryRecordViewHolder> {
+public class RecyclerAdapterForHistoryList extends RecyclerView.Adapter<RecyclerAdapterForHistoryList.HistoryRecordViewHolder> implements View.OnClickListener {
 
     private ArrayList<String> timeList;
     private ArrayList<String> motionsList;
@@ -43,6 +46,8 @@ public class RecyclerAdapterForHistoryList extends RecyclerView.Adapter<Recycler
         holder.textViewCount.setText(countList.get(position).toString());
         holder.textViewCorrectRate.setText(correctRateList.get(position).toString() + "%");
         holder.textViewBar.setText("");
+        holder.cardView.setOnClickListener(this);
+
     }
 
     @Override
@@ -50,10 +55,20 @@ public class RecyclerAdapterForHistoryList extends RecyclerView.Adapter<Recycler
         return motionsList.size();
     }
 
+    @Override
+    public void onClick(View view) {
+        Intent i = new Intent(view.getContext(), HistoryDetails.class);
+        //i.putExtra("position", );
+        context.startActivity(i);
+
+
+    }
+
     //represent card_design
     public class HistoryRecordViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textViewTime, textViewMotionName, textViewCount, textViewCorrectRate, textViewBar;
+        private CardView cardView;
 
         public HistoryRecordViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -63,6 +78,7 @@ public class RecyclerAdapterForHistoryList extends RecyclerView.Adapter<Recycler
             textViewCount = itemView.findViewById(R.id.textViewCount);
             textViewCorrectRate = itemView.findViewById(R.id.textViewCorrect);
             textViewBar = itemView.findViewById(R.id.bar);
+            cardView = itemView.findViewById(R.id.cardViewForHistoryRecord);
 
 
         }
