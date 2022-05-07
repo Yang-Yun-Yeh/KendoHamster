@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KendoHamster">
         <activity
+            android:name=".HistoryDetails"
+            android:exported="false" />
+        <activity
             android:name=".TrainingResult"
             android:exported="false" />
         <activity

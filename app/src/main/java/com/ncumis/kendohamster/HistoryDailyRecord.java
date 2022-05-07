@@ -9,6 +9,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 
 public class HistoryDailyRecord extends AppCompatActivity {
+    //== firstFragment
 
     private RecyclerView recyclerView;
     private RecyclerAdapterForHistoryList adapter;
@@ -22,6 +23,8 @@ public class HistoryDailyRecord extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_daily_record);
+
+        setTitle("2022/03/09");
 
 
         recyclerView = findViewById(R.id.recyclerViewHistory);
