@@ -57,6 +57,7 @@ public class PracticeTimeFragment extends Fragment {
                     if(practiceTime >0){
                         MotionVideo motionVideo = (MotionVideo) getActivity();
                         motionVideo.startPracticing(motionName, practiceTime);
+
                     }
                     else{
                         editTextInputPracticeTime.setText("");
