@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class RecyclerAdapterForHistoryList extends RecyclerView.Adapter<RecyclerAdapterForHistoryList.HistoryRecordViewHolder> implements View.OnClickListener {
+public class RecyclerAdapterForHistoryList extends RecyclerView.Adapter<RecyclerAdapterForHistoryList.HistoryRecordViewHolder> {
 
     private ArrayList<String> timeList;
     private ArrayList<String> motionsList;
@@ -46,23 +46,25 @@ public class RecyclerAdapterForHistoryList extends RecyclerView.Adapter<Recycler
         holder.textViewCount.setText(countList.get(position).toString());
         holder.textViewCorrectRate.setText(correctRateList.get(position).toString() + "%");
         holder.textViewBar.setText("");
-        holder.cardView.setOnClickListener(this);
+        //holder.cardView.setOnClickListener(this);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //點按鈕的時候，會把是點哪一個項目餵進去HistoryDetails這個Activity
+                Intent i = new Intent(view.getContext(), HistoryDetails.class);
+                i.putExtra("location", holder.getAdapterPosition());
+                context.startActivity(i);
+            }
+        });
 
     }
+
 
     @Override
     public int getItemCount() {
         return motionsList.size();
     }
 
-    @Override
-    public void onClick(View view) {
-        Intent i = new Intent(view.getContext(), HistoryDetails.class);
-        //i.putExtra("position", );
-        context.startActivity(i);
-
-
-    }
 
     //represent card_design
     public class HistoryRecordViewHolder extends RecyclerView.ViewHolder {
