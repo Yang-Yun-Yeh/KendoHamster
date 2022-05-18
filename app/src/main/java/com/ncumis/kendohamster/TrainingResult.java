@@ -45,6 +45,7 @@ public class TrainingResult extends AppCompatActivity {
                 i.putExtra("motionName", motionName);
                 i.putExtra("practiceTime", practiceTime);
                 startActivity(i);
+                TrainingResult.this.finish();
             }
         });
         btnDownloadVideo.setOnClickListener(new View.OnClickListener() {
@@ -53,11 +54,11 @@ public class TrainingResult extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Download Video",Toast.LENGTH_SHORT).show();
             }
         });
+
         btnBackToMotionList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(TrainingResult.this, MotionList.class);
-                startActivity(i);
+                TrainingResult.this.finish();
             }
         });
 

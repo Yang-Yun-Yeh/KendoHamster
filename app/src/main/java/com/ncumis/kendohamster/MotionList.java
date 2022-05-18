@@ -33,7 +33,6 @@ public class MotionList extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(MotionList.this,MotionVideo.class);
                 startActivity(intent);
-
             }
         });
 
