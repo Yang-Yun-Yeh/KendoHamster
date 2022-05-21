@@ -1,11 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        style="@style/CustomIconButton"
+        android:background="@drawable/ic_baseline_highlight_off_24"
+        android:layout_alignParentLeft="true" />
+    <Button
+        android:id="@+id/btnLens"
+        android:layout_height="wrap_content"
+        android:layout_width="96dp"
+        android:text="Lens"
+        android:layout_alignParentRight="true"/>
+
+    <androidx.camera.view.CameraView
+        android:id="@+id/view_finder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_above="@id/btnVideo"
+        android:layout_below="@id/btnClose" />
+
+    <Button
+        android:id="@+id/btnVideo"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        style="@style/CustomIconButton"
+        android:background="@drawable/ic_baseline_videocam_24" />
+
+    <Button
+        android:id="@+id/btnStop"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/btnVideo"
+        android:text="STOP" />
+
+
+
+    <Button
+        android:id="@+id/btnPractice"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/textCounter"
+        android:text="practice*1" />
+
+    <TextView
+        android:id="@+id/textCounter"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Counter"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_width="96dp"/>
+
+</RelativeLayout>
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TrainingView">
-
+<Button
+android:id="@+id/btnPhoto"
+android:layout_width="96dp"
+android:layout_height="wrap_content"
+android:layout_alignParentBottom="true"
+android:layout_toLeftOf="@id/btnPractice"
+android:text="PHOTO" />
     <Button
         android:id="@+id/btnStartRecording"
         style="@style/CustomIconButton"
@@ -42,4 +115,4 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>-->
