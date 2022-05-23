@@ -12,9 +12,11 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -28,10 +30,18 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.annotation.Nullable;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -50,11 +60,15 @@ public class TrainingView extends AppCompatActivity {
     private final String[] REQUIRED_PERMISSIONS = new String[]{"android.permission.CAMERA",
             "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.RECORD_AUDIO"};
 
-
     Button btnPractice;
     TextView textCounter;
     String motionName;
     int practiceTime, count;
+
+    //MediaController mediaController;
+    private StorageReference mstorageref;
+    private Uri videoUri;
+    private String videoName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,11 +101,14 @@ public class TrainingView extends AppCompatActivity {
         btnPractice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("MESS1", "click");
                 if(count>1) {
                     count -= 1;
                     textCounter.setText(String.valueOf(count));
                 }
                 else{
+                    videoUri = getVideoUriFromExternal(videoName);
+                    uploadvideo(videoUri);
                     Intent i = new Intent(TrainingView.this, TrainingResult.class);
                     i.putExtra("motionName", motionName);
                     i.putExtra("practiceTime", practiceTime);
@@ -117,6 +134,12 @@ public class TrainingView extends AppCompatActivity {
         //        Toast.makeText(getApplicationContext(),"Start Recording",Toast.LENGTH_SHORT).show();
         //    }
         //});
+
+
+        //上傳影片
+        //mediaController = new MediaController(this);
+        mstorageref = FirebaseStorage.getInstance().getReference("videos");
+
 
     }
     private void startCamera() {
@@ -186,7 +209,8 @@ public class TrainingView extends AppCompatActivity {
             if(mCameraView.isRecording()){return;}
 
             SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
-            File file = new File(getBatchDirectoryName(), mDateFormat.format(new Date()) + ".mp4");
+            videoName = mDateFormat.format(new Date()) + ".mp4";
+            File file = new File(getBatchDirectoryName(), videoName);
 
             mCameraView.setCaptureMode(CameraView.CaptureMode.VIDEO);
             mCameraView.startRecording(file, executor, new VideoCapture.OnVideoSavedCallback() {
@@ -395,4 +419,42 @@ public class TrainingView extends AppCompatActivity {
         }
         return true;
     } //write end
+
+    //上傳影片用
+    private void uploadvideo(Uri videoUri){
+        if(videoUri != null){
+            StorageReference reference = mstorageref.child
+                    (videoName);
+
+            reference.putFile(videoUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Toast.makeText(TrainingView.this, "Video uploaded.", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(TrainingView.this, "Upload failed.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }else{
+            Toast.makeText(TrainingView.this, "Can't get uri", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public static Uri getVideoUriFromExternal(String videoName) {
+        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString() + "/Camera";
+        File video_path = new File(path);
+        File picPath = new File(video_path, videoName);
+        Uri uri = null;
+        Log.d("MESS1", "picPath:"+picPath+", video_path:"+video_path);
+        uri = Uri.fromFile(picPath);
+
+        return uri;
+    }
+
+    // Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString() + "/Camera"
+
 }
+
+

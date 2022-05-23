@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "548127847088",
+    "project_id": "upload-video-test-f7e7f",
+    "storage_bucket": "upload-video-test-f7e7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548127847088:android:265ee322c14753dc868175",
+        "android_client_info": {
+          "package_name": "com.ncumis.kendohamster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "548127847088-fgdntpejnh1nrmd3stp1io4inuovocs2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBGg4BfO9uh7ZCbH3_dgkI8M2rqQxKyso"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "548127847088-fgdntpejnh1nrmd3stp1io4inuovocs2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
