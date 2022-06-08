@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 
 public class History extends AppCompatActivity {
     CalendarView calendarView;
-    Button btnRecord;
+    Button btnRecord, btnDraw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class History extends AppCompatActivity {
 
         calendarView = findViewById(R.id.calendarView);
         btnRecord = findViewById(R.id.btnRecord);
+        btnDraw = findViewById(R.id.btnDraw);
 
         /*calendarView.getDate();
         calendarView.setOnClickListener(new View.OnClickListener() {
@@ -36,6 +37,16 @@ public class History extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(History.this, HistoryDailyRecord.class);
+                startActivity(i);
+            }
+        });
+
+        //此按鈕是用於嘗試java繪圖的功能
+        //所以點這邊的按鈕，會進到一個 DrawPictureTry 這個 activity 裡
+        btnDraw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(History.this, DrawPictureTry.class);
                 startActivity(i);
             }
         });
