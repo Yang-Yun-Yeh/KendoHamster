@@ -28,9 +28,10 @@ public class LineChartData {
         this.lineChart = lineChart;
     }
 
+    //整個圖表的設定
     public void initDataSet(ArrayList<Entry> entries) {
         if(entries.size()>0){
-            for(int i = 0 ;i<entries.size();i++){
+            for(int i = 0 ;i < entries.size();i++){
                 final LineDataSet set;
                 set = new LineDataSet(entries, ""); //將數值複製到線條上
                 //圖表形式設定
@@ -41,7 +42,7 @@ public class LineChartData {
                 set.setDrawCircleHole(false);//圓點為實心(預設空心)
                 set.setLineWidth(1.5f);//線寬
                 set.setDrawValues(true);//顯示座標點對應Y軸的數字(預設顯示)
-                set.setValueTextSize(8);//座標點數字大小
+                set.setValueTextSize(12);//座標點數字大小:8
 
                 Legend legend = lineChart.getLegend(); //legend:曲線描述
                 legend.setEnabled(false);//不顯示圖例 (預設顯示)
@@ -59,6 +60,7 @@ public class LineChartData {
         lineChart.invalidate();//繪製圖表,refresh
     }
 
+    //x軸設定
     public void initX(ArrayList dateList) {
         XAxis xAxis = lineChart.getXAxis();
 
@@ -76,6 +78,7 @@ public class LineChartData {
         xAxis.setValueFormatter(new IndexAxisValueFormatter(dateList));
     }
 
+    //y軸設定
     public void initY(Float min, Float max) {
         YAxis rightAxis = lineChart.getAxisRight();//獲取右側的軸線
         rightAxis.setEnabled(false);//不顯示右側Y軸
@@ -85,8 +88,8 @@ public class LineChartData {
         leftAxis.setTextColor(Color.GRAY);//Y軸標籤顏色
         leftAxis.setTextSize(12);//Y軸標籤大小
 
-        leftAxis.setAxisMinimum(min-10);//Y軸標籤最小值
-        leftAxis.setAxisMaximum(max+10);//Y軸標籤最大值
+        leftAxis.setAxisMinimum(min);//Y軸標籤最小值
+        leftAxis.setAxisMaximum(max);//Y軸標籤最大值
 
         leftAxis.setValueFormatter(new MyYAxisValueFormatter());
     }
